@@ -1,0 +1,76 @@
+{
+	"name": "console-haste",
+	"displayName": "Manta's Console Haste",
+	"description": "Add JavaScript console log quickly.",
+	"version": "0.0.1",
+	"publisher": "thisismanta",
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"javascript",
+		"typescript",
+		"console",
+		"log",
+		"keybindings"
+	],
+	"repository": {
+		"url": "https://github.com/ThisIsManta/vscode-sparrow-keys"
+	},
+	"bugs": {
+		"url": "https://github.com/ThisIsManta/vscode-sparrow-keys/issues"
+	},
+	"icon": "docs/logo.png",
+	"galleryBanner": {
+		"color": "#212121",
+		"theme": "dark"
+	},
+	"engines": {
+		"vscode": "^1.73.0"
+	},
+	"volta": {
+		"node": "18.16.0",
+		"npm": "9.5.1"
+	},
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./dist/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "consoleHaste.insertLog",
+				"title": "Console Haste: Insert Console Log"
+			},
+			{
+				"command": "consoleHaste.deleteLog",
+				"title": "Console Haste: Delete All Console Log"
+			}
+		],
+		"keybindings": [
+			{
+				"key": "alt+c",
+				"command": "consoleHaste.insertLog",
+				"when": "editorTextFocus && !editorReadonly && editorLangId =~ /^(java|type)script/"
+			}
+		]
+	},
+	"scripts": {
+		"postinstall": "code --install-extension connor4312.esbuild-problem-matchers",
+		"build": "esbuild edge/extension.ts --bundle --platform=node --outfile=dist/extension.js --external:vscode --external:typescript --format=cjs",
+		"watch": "npm run build -- --watch --sourcemap",
+		"vscode:prepublish": "npm run build -- --minify",
+		"version": "npx @vscode/vsce publish"
+	},
+	"devDependencies": {
+		"@thisismanta/semantic-version": "^5.0.2",
+		"@types/lodash": "^4.14.194",
+		"@types/node": ">=18.0.0",
+		"@types/vscode": "^1.73.0",
+		"esbuild": "^0.17.19",
+		"lodash": "^4.17.21"
+	},
+	"dependencies": {
+		"typescript": "^5.0.4"
+	}
+}
