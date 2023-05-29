@@ -15,10 +15,10 @@
 		"keybindings"
 	],
 	"repository": {
-		"url": "https://github.com/ThisIsManta/vscode-sparrow-keys"
+		"url": "https://github.com/ThisIsManta/vscode-console-haste"
 	},
 	"bugs": {
-		"url": "https://github.com/ThisIsManta/vscode-sparrow-keys/issues"
+		"url": "https://github.com/ThisIsManta/vscode-console-haste/issues"
 	},
 	"icon": "docs/logo.png",
 	"galleryBanner": {
