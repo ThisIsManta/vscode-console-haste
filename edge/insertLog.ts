@@ -54,7 +54,6 @@ export default async function insertLog(editor: vscode.TextEditor) {
 		}
 
 		const [positionOrRange, text] = edit
-		// const formattedText = format(text, positionOrRange, editor)
 
 		await editor.edit(editBuilder => {
 			if (positionOrRange instanceof vscode.Range) {
